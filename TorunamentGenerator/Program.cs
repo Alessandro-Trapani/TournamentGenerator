@@ -22,6 +22,7 @@ builder.Services.AddDistributedMemoryCache();
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
