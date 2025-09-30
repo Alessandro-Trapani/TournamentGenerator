@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>TI_Net2025_DemoCleanAsp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TournamentGenerator.BLL\TournamentGenerator.BLL.csproj" />
+    <ProjectReference Include="..\TournamentGenerator.DL\TournamentGenerator.DL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="Models\" />
+    <Folder Include="ReactApp\" />
+    <Folder Include="wwwroot\js\panier\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Product\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Product\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Product\Update.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\Cart\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\Partials\_Pagination.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\User\Login.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\User\Register.cshtml" />
+  </ItemGroup>
+
+	<Target Name="Build React App" BeforeTargets="Build">
+		<Exec Command="cd ReactApp\Panier &amp;&amp; npm run build"></Exec>
+	</Target>
+
+</Project>
