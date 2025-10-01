@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using TI_Net2025_DemoCleanAsp.DAL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,8 @@ builder.Services.AddSession();
 
 builder.Services.AddDistributedMemoryCache();
 
-
+builder.Services.AddSingleton<TournamentRepository>(sp =>
+    new TournamentRepository(builder.Configuration.GetConnectionString("PostgresConnection")));
 
 var app = builder.Build();
 
